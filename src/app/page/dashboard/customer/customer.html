@@ -1,0 +1,270 @@
+<div class="h-full flex flex-col p-6 lg:p-8 font-sans text-slate-900 overflow-hidden">
+
+  <!-- Header & Actions -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 shrink-0">
+    <div>
+      <h1 class="text-3xl font-black tracking-tight text-slate-900">Customers</h1>
+      <p class="text-slate-500 font-medium mt-1">Manage your store's customer base</p>
+    </div>
+
+    <div class="flex items-center gap-3">
+      <button
+        class="flex items-center gap-2 px-4 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-600 hover:text-emerald-600 hover:border-emerald-200 hover:bg-emerald-50 transition-all font-bold shadow-sm">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+        </svg>
+        Export
+      </button>
+
+      <button (click)="showForm = true"
+        class="flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white rounded-xl hover:bg-slate-800 transition-all shadow-lg hover:shadow-slate-900/20 font-bold transform hover:-translate-y-0.5">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+        </svg>
+        Add Customer
+      </button>
+    </div>
+  </div>
+
+  <!-- ========== Customer Form (shown on Add Customer click) ========== -->
+  <div *ngIf="showForm"
+    class="mb-6 bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden shrink-0 animate-fade-in">
+
+    <!-- Form Header -->
+    <div class="px-6 py-4 bg-gradient-to-r from-slate-900 to-slate-800 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="h-9 w-9 rounded-xl bg-emerald-500/20 flex items-center justify-center">
+          <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+          </svg>
+        </div>
+        <h2 class="text-lg font-bold text-white">New Customer</h2>
+      </div>
+      <button (click)="showForm = false"
+        class="text-slate-400 hover:text-white transition-colors p-1.5 hover:bg-white/10 rounded-lg">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Form Body -->
+    <div class="p-6">
+
+      <!-- Row 0: Customer ID -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mb-5">
+        <div class="md:col-span-1">
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Customer ID</label>
+          <input type="text" [(ngModel)]="customerObj.id" placeholder="C001"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm" />
+        </div>
+      </div>
+
+      <!-- Row 1: Title & Full Name -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-5 mb-5">
+        <div class="md:col-span-1">
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Title</label>
+          <select [(ngModel)]="customerObj.title"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm">
+            <option value="" disabled selected>Select</option>
+            <option value="Mr">Mr</option>
+            <option value="Mrs">Mrs</option>
+            <option value="Miss">Miss</option>
+            <option value="Ms">Ms</option>
+            <option value="Dr">Dr</option>
+          </select>
+        </div>
+        <div class="md:col-span-3">
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Full Name</label>
+          <input type="text" [(ngModel)]="customerObj.name" placeholder="Enter full name"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm" />
+        </div>
+      </div>
+
+      <!-- Row 2: Date of Birth & Salary -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Date of Birth</label>
+          <input type="date" [(ngModel)]="customerObj.dob"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Salary</label>
+          <input type="number" [(ngModel)]="customerObj.salary" placeholder="0.00"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm" />
+        </div>
+      </div>
+
+      <!-- Row 3: Address -->
+      <div class="mb-5">
+        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Address</label>
+        <input type="text" [(ngModel)]="customerObj.address" placeholder="Enter street address"
+          class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm" />
+      </div>
+
+      <!-- Row 4: City, Province & Postal Code -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-6">
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">City</label>
+          <input type="text" [(ngModel)]="customerObj.city" placeholder="City"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Province</label>
+          <input type="text" [(ngModel)]="customerObj.province" placeholder="Province"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">Postal Code</label>
+          <input type="text" [(ngModel)]="customerObj.postalcode" placeholder="00000"
+            class="w-full px-4 py-2.5 border border-slate-200 rounded-xl bg-white text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm" />
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-end gap-3 pt-4 border-t border-slate-100">
+        <button (click)="showForm = false"
+          class="px-5 py-2.5 bg-white border border-slate-200 rounded-xl text-slate-600 hover:text-red-500 hover:border-red-200 hover:bg-red-50 transition-all font-bold shadow-sm">
+          Cancel
+        </button>
+        <button (click)="saveCustomer()"
+          class="px-6 py-2.5 bg-emerald-600 text-white rounded-xl hover:bg-emerald-700 transition-all shadow-lg hover:shadow-emerald-600/20 font-bold transform hover:-translate-y-0.5">
+          <span class="flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            Save Customer
+          </span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Content Card -->
+  <div class="flex-1 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col overflow-hidden">
+
+    <!-- Filters / Search -->
+    <div
+      class="p-5 border-b border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 bg-slate-50/50">
+      <div class="relative w-full max-w-md group">
+        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+          <svg class="w-5 h-5 text-slate-400 group-focus-within:text-emerald-500 transition-colors" fill="none"
+            stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        </div>
+        <input type="text"
+          class="block w-full pl-10 pr-4 py-2.5 border border-slate-200 rounded-xl leading-5 bg-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all shadow-sm font-medium"
+          placeholder="Search customers by name, ID or city..." />
+      </div>
+
+      <div class="flex items-center gap-3">
+        <span
+          class="text-sm font-bold text-slate-500 bg-white px-3 py-1.5 rounded-lg border border-slate-100 shadow-sm">
+          {{customerList.length}} Records
+        </span>
+        <button
+          class="p-2 text-slate-400 hover:text-emerald-600 bg-white rounded-lg border border-slate-100 hover:border-emerald-200 transition-all">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="flex-1 overflow-auto custom-scrollbar">
+      <table class="min-w-full divide-y divide-slate-100">
+        <thead class="bg-slate-50 sticky top-0 z-10">
+          <tr>
+            <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">
+              ID
+            </th>
+            <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">
+              Customer Info
+            </th>
+            <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">
+              Contact / Location
+            </th>
+            <th scope="col" class="px-6 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-wider">
+              Salary
+            </th>
+            <th scope="col" class="px-6 py-4 text-right text-xs font-bold text-slate-500 uppercase tracking-wider">
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-slate-50">
+          <tr *ngFor="let customer of paginatedList" class="hover:bg-slate-50/80 transition-colors group">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-400">
+              #{{customer.id}}
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="flex items-center">
+                <div class="h-10 w-10 flex-shrink-0">
+                  <div
+                    class="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center text-emerald-700 font-black text-sm border border-emerald-200/50 shadow-sm">
+                    {{customer.name?.substring(0,2).toUpperCase() || 'CU'}}
+                  </div>
+                </div>
+                <div class="ml-4">
+                  <div class="text-sm font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
+                    {{customer.title}} {{customer.name}}</div>
+                  <div class="text-xs font-medium text-slate-400">Born: {{customer.dob | date:'mediumDate'}}</div>
+                </div>
+              </div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <div class="text-sm font-medium text-slate-700">{{customer.address}}</div>
+              <div class="text-xs text-slate-400 font-medium">{{customer.city}}, {{customer.province}}</div>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span
+                class="px-3 py-1 inline-flex text-xs leading-5 font-bold rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-100">
+                Rs. {{customer.salary}}
+              </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+              <button
+                class="text-slate-400 hover:text-emerald-600 transition-colors p-2 hover:bg-emerald-50 rounded-lg">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                </svg>
+              </button>
+              <button class="text-slate-400 hover:text-red-500 transition-colors p-2 hover:bg-red-50 rounded-lg ml-2">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Footer / Pagination -->
+    <div class="p-4 border-t border-slate-100 bg-slate-50/50 flex items-center justify-between">
+      <p class="text-sm text-slate-500 font-medium">Page <span class="text-slate-900 font-bold">{{currentPage}}</span>
+        of {{totalPages}}</p>
+
+      <div class="flex gap-2">
+        <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1"
+          class="px-4 py-2 bg-white border border-slate-200 rounded-xl text-sm font-bold text-slate-600 hover:bg-slate-50 hover:text-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm">
+          Previous
+        </button>
+        <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages"
+          class="px-4 py-2 bg-slate-900 text-white border border-slate-900 rounded-xl text-sm font-bold hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg hover:shadow-slate-900/20">
+          Next
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

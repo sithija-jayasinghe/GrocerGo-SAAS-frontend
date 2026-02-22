@@ -1,0 +1,116 @@
+<div class="h-screen w-screen overflow-hidden flex bg-white font-sans text-slate-900 selection:bg-emerald-500 selection:text-white">
+  
+  <!-- Left Side: Brand & Visuals (Hidden on mobile) -->
+  <div class="relative hidden lg:flex w-1/2 bg-slate-900 overflow-hidden flex-col justify-between p-8 xl:p-12 text-white">
+    <!-- Background Effects -->
+    <div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] bg-emerald-500/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-teal-500/20 rounded-full blur-[120px] animate-pulse-slow delay-1000"></div>
+    <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-soft-light"></div>
+
+    <!-- Top: Logo -->
+    <div class="relative z-10 flex items-center gap-2">
+      <div class="w-10 h-10 flex items-center justify-center bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+         <svg class="w-6 h-6 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+      </div>
+      <span class="text-2xl font-black tracking-tight">Grocer<span class="text-emerald-400">Go</span></span>
+    </div>
+
+    <!-- Middle: Testimonial/Hero Content -->
+    <div class="relative z-10 max-w-lg">
+      <h2 class="text-4xl xl:text-5xl font-black leading-tight mb-4 xl:mb-6">
+        Manage your <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">Inventory</span> like a Pro.
+      </h2>
+      <p class="text-slate-400 text-base xl:text-lg mb-6 xl:mb-8 leading-relaxed">
+        "GrocerGo has completely transformed how run our wholesale distribution. The real-time analytics are a game changer."
+      </p>
+      
+      <!-- User Profile -->
+      <div class="flex items-center gap-4">
+        <div class="w-10 h-10 xl:w-12 xl:h-12 rounded-full bg-gradient-to-tr from-emerald-400 to-teal-500 p-[2px]">
+           <div class="w-full h-full rounded-full bg-slate-800 flex items-center justify-center text-xs xl:text-sm font-bold">JD</div>
+        </div>
+        <div>
+           <p class="font-bold text-sm xl:text-base">John Doe</p>
+           <p class="text-xs xl:text-sm text-slate-500">CEO, FreshMart Inc.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom: Footer links -->
+    <div class="relative z-10 flex gap-6 text-xs xl:text-sm text-slate-500 font-medium">
+       <a href="#" class="hover:text-emerald-400 transition-colors">Terms</a>
+       <a href="#" class="hover:text-emerald-400 transition-colors">Privacy</a>
+       <a href="#" class="hover:text-emerald-400 transition-colors">Help</a>
+    </div>
+  </div>
+
+  <!-- Right Side: Login Form -->
+  <div class="flex-1 flex flex-col justify-center items-center p-4 lg:p-8 relative h-full overflow-hidden">
+    
+    <div class="w-full max-w-sm flex flex-col gap-4 xl:gap-6 2xl:gap-8">
+      <!-- Mobile Logo (Visible only on mobile) -->
+      <div class="lg:hidden flex justify-center mb-2">
+        <div class="flex items-center gap-2">
+            <div class="w-8 h-8 flex items-center justify-center bg-slate-900 rounded-lg">
+                <svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" /></svg>
+            </div>
+            <span class="text-xl font-black text-slate-900">Grocer<span class="text-emerald-600">Go</span></span>
+        </div>
+      </div>
+
+      <!-- Header -->
+      <div class="text-center lg:text-left">
+        <h2 class="text-2xl xl:text-3xl font-black text-slate-900 tracking-tight mb-1">Welcome back</h2>
+        <p class="text-slate-500 text-sm">Please enter your details to sign in.</p>
+      </div>
+
+      <!-- Social Login -->
+      <div class="grid grid-cols-2 gap-3">
+        <button class="flex items-center justify-center gap-2 py-2 border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all font-semibold text-slate-700 text-sm">
+           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.545,10.239v3.821h5.445c-0.712,2.315-2.647,3.972-5.445,3.972c-3.332,0-6.033-2.701-6.033-6.032s2.701-6.032,6.033-6.032c1.498,0,2.866,0.549,3.921,1.453l2.814-2.814C17.503,2.988,15.139,2,12.545,2C7.021,2,2.543,6.477,2.543,12s4.478,10,10.002,10c8.396,0,10.249-7.85,9.426-11.748L12.545,10.239z"/></svg>
+           Google
+        </button>
+        <button class="flex items-center justify-center gap-2 py-2 border border-slate-200 rounded-lg hover:bg-slate-50 hover:border-slate-300 transition-all font-semibold text-slate-700 text-sm">
+           <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+           Twitter
+        </button>
+      </div>
+
+      <div class="relative flex items-center justify-center">
+         <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+         <span class="relative bg-white px-2 text-xs text-slate-500 font-medium">Or continue with</span>
+      </div>
+
+      <!-- Form Inputs -->
+      <div class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1" for="email">Email Address</label>
+          <input type="email" id="email" 
+            class="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
+            placeholder="name@company.com">
+        </div>
+
+        <div>
+           <div class="flex justify-between items-center mb-1">
+             <label class="block text-xs font-bold text-slate-700" for="password">Password</label>
+             <a href="#" class="text-xs font-semibold text-emerald-600 hover:text-emerald-700">Forgot password?</a>
+           </div>
+          <input type="password" id="password"
+            class="w-full px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-900 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all"
+            placeholder="••••••••">
+        </div>
+
+        <button routerLink="/dashboard/" type="button" class="w-full py-3 px-6 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg shadow-lg hover:shadow-xl hover:shadow-slate-900/20 transition-all transform hover:-translate-y-0.5 mt-1 text-sm">
+          Sign In
+        </button>
+      </div>
+
+      <!-- Footer -->
+      <p class="text-center text-slate-500 text-xs">
+        Don't have an account? 
+        <a href="#" class="font-bold text-emerald-600 hover:text-emerald-700">Start 14-day free trial</a>
+      </p>
+
+    </div>
+  </div>
+</div>
