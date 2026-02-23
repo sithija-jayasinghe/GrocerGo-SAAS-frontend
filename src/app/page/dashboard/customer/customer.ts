@@ -45,6 +45,19 @@ export class Customer {
       });
   }
 
+  deleteCustomer(id: string) {
+    this.http.delete("http://localhost:8080/customer/delete-customer/" + id)
+      .subscribe({
+        next: (response) => {
+          console.log("Deleted successfully");
+          this.getAll();
+        },
+        error: (err) => {
+          console.error("Delete failed", err);
+        }
+      });
+  }
+
   saveCustomer() {
     this.http.post("http://localhost:8080/customer/add-customer", this.customerObj)
       .subscribe(() => {
