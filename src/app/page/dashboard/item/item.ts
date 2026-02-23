@@ -41,6 +41,19 @@ export class Item {
       });
   }
 
+  deleteItem(id: string) {
+    this.http.delete("http://localhost:8080/item/delete-item/" + id)
+      .subscribe({
+        next: (response) => {
+          console.log("Deleted successfully");
+          this.getAll();
+        },
+        error: (err) => {
+          console.error("Delete failed", err);
+        }
+      });
+  }
+
   saveItem() {
     this.http.post("http://localhost:8080/item/add-item", this.itemObj)
       .subscribe(() => {
