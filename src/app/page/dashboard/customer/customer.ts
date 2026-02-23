@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { CustomerModel } from '../../../model/type';
   templateUrl: './customer.html',
   styleUrl: './customer.css',
 })
-export class Customer {
+export class Customer implements OnInit {
   customerList: Array<CustomerModel> = [];
   paginatedList: any[] = [];
   currentPage = 1;
@@ -32,7 +32,9 @@ export class Customer {
     postalcode: '',
   };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
     this.getAll();
   }
 

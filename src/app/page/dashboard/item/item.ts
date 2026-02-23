@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -8,11 +8,11 @@ import { FormsModule } from '@angular/forms';
 @Component({
   standalone: true,
   selector: 'app-item',
-  imports: [RouterOutlet, HttpClientModule, CommonModule,FormsModule],
+  imports: [RouterOutlet, HttpClientModule, CommonModule, FormsModule],
   templateUrl: './item.html',
   styleUrl: './item.css',
 })
-export class Item {
+export class Item implements OnInit {
   itemList: Array<ItemModel> = [];
   paginatedList: ItemModel[] = [];
   currentPage = 1;
@@ -26,9 +26,11 @@ export class Item {
     packSize: '',
     unitPrice: 0,
     qtyOnHand: 0,
-  };  
+  };
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient) { }
+
+  ngOnInit(): void {
     this.getAll();
   }
 
