@@ -1,7 +1,5 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { OnInit } from '@angular/core';
-import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +7,6 @@ import { initFlowbite } from 'flowbite';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements OnInit {
- 
-
-  ngOnInit(): void {
-    initFlowbite();
-  }
-  protected readonly title= signal("GrocerGo");
+export class App {
+  protected readonly title = signal("GrocerGo");
 }
