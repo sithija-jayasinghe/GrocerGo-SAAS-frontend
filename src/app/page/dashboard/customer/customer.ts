@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { CustomerModel } from '../../../model/type';
 
 @Component({
   standalone: true,
   selector: 'app-customer',
-  imports: [RouterOutlet, HttpClientModule, CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './customer.html',
   styleUrl: './customer.css',
 })

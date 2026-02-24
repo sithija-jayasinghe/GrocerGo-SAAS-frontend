@@ -1,14 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ItemModel } from '../../../model/type';
 import { FormsModule } from '@angular/forms';
 
 @Component({
   standalone: true,
   selector: 'app-item',
-  imports: [RouterOutlet, HttpClientModule, CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './item.html',
   styleUrl: './item.css',
 })

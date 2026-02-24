@@ -28,8 +28,8 @@
   </div>
 
   <!-- ========== Customer Form (shown on Add Customer click) ========== -->
-  <div *ngIf="showForm"
-    class="mb-6 bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden shrink-0 animate-fade-in">
+  @if (showForm) {
+  <div class="mb-6 bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden shrink-0 animate-fade-in">
 
     <!-- Form Header -->
     <div class="px-6 py-4 bg-gradient-to-r from-slate-900 to-slate-800 flex items-center justify-between">
@@ -142,6 +142,7 @@
 
     </div>
   </div>
+  }
 
   <!-- Content Card -->
   <div class="flex-1 bg-white rounded-3xl shadow-sm border border-slate-100 flex flex-col overflow-hidden">
@@ -200,7 +201,8 @@
           </tr>
         </thead>
         <tbody class="bg-white divide-y divide-slate-50">
-          <tr *ngFor="let customer of paginatedList" class="hover:bg-slate-50/80 transition-colors group">
+          @for (customer of paginatedList; track customer.id) {
+          <tr class="hover:bg-slate-50/80 transition-colors group">
             <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-400">
               #{{customer.id}}
             </td>
@@ -246,6 +248,7 @@
               </button>
             </td>
           </tr>
+          }
         </tbody>
       </table>
     </div>
